@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>自动标签分组</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      padding: 10px;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    .group-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    .group-controls {
+      margin-top: 10px;
+      text-align: right;
+    }
+    .success-message {
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>自动标签分组配置</h1>
+  
+  <div id="config-form">
+    <div class="form-group">
+      <label for="domain">域名</label>
+      <input type="text" id="domain" placeholder="例如: google.com">
+    </div>
+    
+    <div class="form-group">
+      <label for="group-name">分组名称</label>
+      <input type="text" id="group-name" placeholder="例如: 搜索引擎">
+    </div>
+    
+    <div class="form-group">
+      <label for="group-color">分组颜色</label>
+      <select id="group-color">
+        <option value="blue">蓝色</option>
+        <option value="red">红色</option>
+        <option value="yellow">黄色</option>
+        <option value="green">绿色</option>
+        <option value="grey">灰色</option>
+      </select>
+    </div>
+    
+    <button id="add-group">添加分组</button>
+  </div>
+  
+  <div id="group-list" style="margin-top: 20px;"></div>
+  
+  <div id="success-message" class="success-message">保存成功！</div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 
