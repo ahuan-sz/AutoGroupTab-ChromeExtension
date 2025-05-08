@@ -129,13 +129,42 @@ function moveTabsToGroup(tabIds, groupId) {
   });
 }
 
+// 映射颜色到Chrome支持的颜色值
+function mapColorToSupported(color) {
+  // Chrome标签组API支持的颜色: grey, blue, red, yellow, green, pink, purple, cyan, orange
+  const supportedColors = ['grey', 'blue', 'red', 'yellow', 'green', 'pink', 'purple', 'cyan', 'orange'];
+  
+  // 如果颜色已经支持，直接返回
+  if (supportedColors.includes(color)) {
+    return color;
+  }
+  
+  // 颜色映射
+  const colorMapping = {
+    'black': 'grey',
+    'white': 'grey',
+    'brown': 'orange',
+    'lime': 'green',
+    'teal': 'cyan',
+    'indigo': 'blue',
+    'violet': 'purple',
+    'coral': 'orange',
+    'magenta': 'pink',
+    'olive': 'green',
+    'navy': 'blue'
+  };
+  
+  // 如果有映射，返回映射值，否则默认为grey
+  return colorMapping[color] || 'grey';
+}
+
 // 创建新分组
 function createNewGroup(tabIds, groupConfig) {
   chrome.tabs.group({tabIds: tabIds}, function(groupId) {
-    // 设置分组标题和颜色
+    // 设置分组标题和颜色（确保颜色受支持）
     chrome.tabGroups.update(groupId, {
       title: groupConfig.name,
-      color: groupConfig.color
+      color: mapColorToSupported(groupConfig.color)
     });
   });
 } 

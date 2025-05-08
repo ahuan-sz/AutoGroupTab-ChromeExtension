@@ -120,7 +120,22 @@ document.addEventListener('DOMContentLoaded', function() {
       'red': '红色',
       'yellow': '黄色',
       'green': '绿色',
-      'grey': '灰色'
+      'grey': '灰色',
+      'pink': '粉色',
+      'purple': '紫色',
+      'cyan': '青色',
+      'orange': '橙色',
+      'brown': '棕色',
+      'black': '黑色',
+      'white': '白色',
+      'lime': '青柠色',
+      'teal': '鸭绿色',
+      'indigo': '靛蓝色',
+      'violet': '紫罗兰色',
+      'coral': '珊瑚色',
+      'magenta': '品红色',
+      'olive': '橄榄色',
+      'navy': '海军蓝'
     };
     
     return colorMap[color] || color;
